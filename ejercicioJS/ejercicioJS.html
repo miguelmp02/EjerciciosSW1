@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generador de Contraseña</title>
+</head>
+<body>
+    <h1>Generador de Contraseña</h1>
+    <h2>Nueva contraseña</h2>
+    <form id="passwordForm">
+        <label for="conteoPalabras">Número de palabras (1-10):</label>
+        <input type="number" id="conteoPalabras" min="1" max="10">
+        <br>
+        <label for="primeraMayuscula">Comenzar cada palabra en mayúsculas:</label>
+        <input type="checkbox" id="primeraMayuscula">
+        <br>
+        <label for="sinRepetir">No repetir palabras:</label>
+        <input type="checkbox" id="sinRepetir">
+        <br>
+        <button type="button" id="generador">Generar Contraseña</button>
+    </form>
+    <p>La contraseña generada es:</p>
+    <p id="contrasena"></p>
+
+    <script>
+        const diccionario = [
+            "manzana", "platano", "avestruz", "dia", "perro",
+            "perro", "nombre", "futbol", "limon", "gato",
+            "baloncesto", "regaliz", "nueve", "dios", "hola",
+            "practica", "programacion", "prueba", "sistemas", "web"
+        ];
+
+        function generador() {
+            const conteoPalabras = parseInt(document.getElementById("conteoPalabras").value);
+            const primeraMayuscula = document.getElementById("primeraMayuscula").checked;
+            const sinRepetir = document.getElementById("sinRepetir").checked;
+
+            let password = "";
+
+            for (let i = 0; i < conteoPalabras; i++) {
+                let random = diccionario[Math.floor(Math.random() * diccionario.length)];
+
+                if (sinRepetir) {
+                    diccionario.splice(diccionario.indexOf(random), 1);
+                }
+
+                if (primeraMayuscula) {
+                    random = random.charAt(0).toUpperCase() + random.slice(1);
+                }
+
+                password += random;
+
+                if (i < conteoPalabras - 1) {
+                    password += "";
+                }
+                if (conteoPalabras>10) {
+                    password = "Error se supera longitud permitida = 10";
+                }
+            }
+
+            document.getElementById("contrasena").textContent = password;
+        }
+
+        document.getElementById("generador").addEventListener("click", generador);
+    </script>
+</body>
+</html>

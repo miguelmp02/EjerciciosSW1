@@ -1,0 +1,47 @@
+<%- include("header", {}) %>
+		<!-- profile section -->
+		
+		<section class="contact_section layout_padding-bottom">
+			<div class="container">
+				<form method = "get" action="profile">
+					<div class="d-flex flex-column align-items-end">
+						<div class="custom_heading-container">
+							<hr>
+							<h2>
+								<input type="text" name="name" value = '<%= name %>'' readonly>
+								<input type="text" name="lastName" value = "<%= lastName %>"readonly> 
+							</h2>
+						</div>
+					</div>
+					<div class="layout_padding-top layout_padding2-bottom">
+						<div class="row">
+							<div class="col-md-7">
+								<div class="contact_form-container">
+									<div>
+											<input type="email" name="email" value = "<%= email %>" readonly>
+									</div>
+										<div>
+											<input type="tel" name="phone" value = "<%= phone %>" readonly>
+										</div>
+								</div>
+							</div>
+							<div class="col-md-5">
+								<div >
+									<img src="images/favicon.png" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="container">
+				<form action="/logout" method="post">
+					<button type="submit">Logout</button>
+				</form>
+			</div>
+		</section>
+
+
+
+		<!-- end profile section -->
+		<%- include("footer", {}) %>

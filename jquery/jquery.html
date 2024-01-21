@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validación de Formulario con jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h1>Formulario de Validación</h1>
+
+<form id="myForm">
+    <label for="nombre">Nombre y Apellidos:</label>
+    <input type="text" id="nombre" name="nombre" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" name="telefono" required><br>
+
+    <label for="contrasena">Contraseña:</label>
+    <input type="password" id="contrasena" name="contrasena" required><br>
+
+    <button type="button" id="submitBtn">Enviar</button>
+</form>
+
+<div id="mensaje"></div>
+<div id="datos"></div>
+
+<script>
+$(document).ready(function() {
+    $('#submitBtn').click(function() {
+        var nombre = $('#nombre').val();
+        var email = $('#email').val();
+        var telefono = $('#telefono').val();
+        var contrasena = $('#contrasena').val();
+
+        var nombreRegExp = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+        var emailRegExp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        var telefonoRegExp = /^\d+$/;
+        var contrasenaRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+        
+        if (!nombreRegExp.test(nombre) || nombre.split(' ').length < 2) {
+            $('#mensaje').text('Nombre y apellidos no son válidos. Deben contener al menos dos palabras y solo letras.');
+            $('#datos').text('');
+        }
+       
+        else if (!emailRegExp.test(email)) {
+            $('#mensaje').text('Email no es válido. Ingresa un email válido.');
+            $('#datos').text('');
+        }
+        
+        else if (!telefonoRegExp.test(telefono)) {
+            $('#mensaje').text('Teléfono no es válido. Ingresa solo números sin espacios.');
+            $('#datos').text('');
+        }
+        
+        else if (!contrasenaRegExp.test(contrasena)) {
+            $('#mensaje').text('Contraseña no es válida. Debe tener al menos 8 caracteres con una mayúscula, una minúscula y un número.');
+            $('#datos').text('');
+        }
+        // Si todo es válido
+        else {
+            $('#mensaje').text('¡Formulario válido! Datos enviados.');
+            $('#datos').text('Correo: ' + email + 'con Contraseña: ' + contrasena);
+        }
+    });
+});
+</script>
+
+</body>
+</html>
