@@ -1,0 +1,39 @@
+    #form-chat{
+       background: lightgray;
+        padding: 5px;
+        position: fixed;
+        display: flex;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+    }
+    #input-chat{
+        flex-grow: 1;
+    }
+    #messages {
+        list-style-type: none;
+        padding: 0; /* Remove default padding */
+    }
+    
+    /* Style for chat messages */
+    .message {
+        margin-bottom: 5px;
+        overflow: hidden; /* Clear float */
+    }
+    
+    .user-message {
+        background: lightblue;
+        border-radius: 10px 10px 10px 0;
+        margin-left: 10px;
+    }
+    
+    .current-user-message {
+        background: lightgreen;
+        border-radius: 10px 10px 0 10px;
+        margin-right: 10px;
+        text-align: right;
+    }
+    .span{
+        background: gray;
+    }
