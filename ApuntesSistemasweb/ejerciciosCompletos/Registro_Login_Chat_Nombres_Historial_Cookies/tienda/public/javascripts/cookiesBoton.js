@@ -1,25 +1,41 @@
+// Verificar al cargar la página si las cookies ya fueron aceptadas en el servidor
 window.onload = function() {
-    if (localStorage.getItem('cookiesAccepted') === 'true') {
-        // Si las cookies ya fueron aceptadas, oculta el banner
-        var cookiesBanner = document.getElementById("cookies-banner");
-        if (cookiesBanner) {
-            cookiesBanner.style.display = "none";
-        }
-    }
+    fetch('/cookies/status', { method: 'GET' })
+        .then(response => response.json())
+        .then(data => {
+            if (data.cookiesAccepted) {
+                var cookiesBanner = document.getElementById("cookies-banner");
+                if (cookiesBanner) {
+                    cookiesBanner.style.display = "none";
+                }
+            }
+        })
+        .catch(error => console.error('Error en la verificación de cookies:', error));
 }
 
-// Función para aceptar las cookies
 function aceptar() {
     // Ocultar el banner de cookies
     var cookiesBanner = document.getElementById("cookies-banner");
     cookiesBanner.style.display = "none";
 
-    // Guardar la elección del usuario en localStorage
-    localStorage.setItem('cookiesAccepted', 'true');
+    // Enviar la solicitud POST con fetch para almacenar la aceptación en el servidor
+    fetch('/cookies', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ cookiesAccepted: true })
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Cookies aceptadas en el servidor');
+        } else {
+            console.error('Error al aceptar las cookies');
+        }
+    })
+    .catch(error => console.error('Error en la solicitud:', error));
 }
 
-// Función para rechazar las cookies
 function rechazar() {
-    // Redirigir a Google
     window.location.href = "https://www.google.com";
 }
