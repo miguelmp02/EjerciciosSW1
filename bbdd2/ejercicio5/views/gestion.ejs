@@ -1,0 +1,70 @@
+<%- include("header", {}) %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Videojuegos</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h1>Gestión de Videojuegos</h1>
+
+    <!-- Listar Juegos -->
+    <h2>Lista de Juegos</h2>
+    <ul>
+        <% games.forEach(function(game) { %>
+            <li>
+                <h3><%= game.nombre %></h3>
+                <img src="<%= game.foto %>" alt="Foto de <%= game.nombre %>" style="width: 100px;">
+                <form action="/gestion/delete/<%= game.id %>" method="POST" style="display:inline;">
+                    <button type="submit">Eliminar</button>
+                </form>
+                <button onclick="toggleEditForm(<%= game.id %>)">Editar</button>
+
+                <!-- Formulario para editar un juego -->
+                <div id="edit-form-<%= game.id %>" style="display: none;">
+                    <form action="/gestion/edit/<%= game.id %>" method="POST">
+                        <input type="text" name="nombre" value="<%= game.nombre %>" required>
+                        <textarea name="descripcion" required><%= game.descripcion %></textarea>
+                        <input type="text" name="foto" value="<%= game.foto %>" required>
+                        <input type="text" name="plataforma" value="<%= game.plataforma %>" required>
+                        <input type="number" name="año" value="<%= game.año %>" required>
+                        <input type="text" name="desarrollador" value="<%= game.desarrollador %>" required>
+                        <input type="text" name="genero" value="<%= game.genero %>" required>
+                        <input type="number" name="valoracion" value="<%= game.valoracion %>" step="0.1" required>
+                        <input type="text" name="edad" value="<%= game.edad %>" required>
+                        <button type="submit">Guardar cambios</button>
+                    </form>
+                </div>
+            </li>
+        <% }); %>
+    </ul>
+
+    <!-- Formulario para añadir un nuevo juego -->
+    <h2>Añadir Nuevo Juego</h2>
+    <form action="/gestion/add" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre del juego" required>
+        <textarea name="descripcion" placeholder="Descripción" required></textarea>
+        <input type="text" name="foto" placeholder="URL de la imagen" required>
+        <input type="text" name="plataforma" placeholder="Plataforma" required>
+        <input type="number" name="año" placeholder="Año de lanzamiento" required>
+        <input type="text" name="desarrollador" placeholder="Desarrollador" required>
+        <input type="text" name="genero" placeholder="Género" required>
+        <input type="number" name="valoracion" placeholder="Valoración" step="0.1" required>
+        <input type="text" name="edad" placeholder="Clasificación por edad (G, PGR, MA)" required>
+        <button type="submit">Añadir juego</button>
+    </form>
+
+    <script>
+        // Mostrar/Ocultar el formulario de edición
+        function toggleEditForm(id) {
+            const form = document.getElementById(`edit-form-${id}`);
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+
+</body>
+</html>
+
+<%- include("footer", {}) %>

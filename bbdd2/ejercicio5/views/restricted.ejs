@@ -1,0 +1,37 @@
+<%- include("header", {}) %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Videojuegos</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h1>Lista de Videojuegos</h1>
+    <ul>
+        <% if (games && games.length > 0) { %>
+            <% games.forEach(function(game) { %>
+                <li>
+                    <h2><%= game.nombre %></h2>
+ <!--Otra posible solucion: <p class="descripcion">
+                                <%= game.descripcion.split(' ').length > 50 ? 
+                                game.descripcion.split(' ').slice(0, 10).join(' ') + '...' : 
+                                game.descripcion %>
+                            </p>-->
+                    <p class="descripcion"><%= game.descripcion %></p> <a href="/restricted/game/<%= game.id %>" style="float: right;">Ver más</a>
+                    <img src="<%= game.foto %>" alt="Foto de <%= game.nombre %>" style="width: 150px;">
+                    <p><strong>Género:</strong> <%= game.genero %></p>
+                    <p><strong>Clasificación de Edad:</strong> <span class="edad"><%= game.edad %></span></p>
+                    <p><strong>Valoración:</strong> <span class="valoracion"><%= game.valoracion %></span> / 10</p>
+                </li>
+            <% }); %>
+        <% } else { %>
+            <li>No hay videojuegos disponibles en este momento.</li>
+        <% } %>
+    </ul>
+
+</body>
+</html>
+
+<%- include("footer", {}) %>

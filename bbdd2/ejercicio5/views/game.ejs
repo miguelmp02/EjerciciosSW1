@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title><%= game.nombre %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h1><%= game.nombre %></h1>
+
+    <div>
+        <img src="<%= game.foto %>" alt="Foto de <%= game.nombre %>" style="width: 300px;">
+        <p><strong>Descripción:</strong> <%= game.descripcion %></p>
+        <p><strong>Plataforma:</strong> <%= game.plataforma %></p>
+        <p><strong>Año:</strong> <%= game.año %></p>
+        <p><strong>Clasificación de Edad:</strong> <%= game.edad %></p>
+        <p><strong>Desarrollador:</strong> <%= game.desarrollador %></p>
+        <p><strong>Género:</strong> <%= game.género %></p>
+        <p><strong>Valoración:</strong> <%= game.valoracion %> / 10</p>
+    </div>
+
+    <a href="/restricted">Volver a la lista de juegos</a>
+</body>
+</html>

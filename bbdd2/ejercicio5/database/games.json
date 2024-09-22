@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "nombre": "The Legend of Zelda: Breath of the Wild",
+    "descripcion": "The Legend of Zelda: Breath of the Wild es un emocionante juego de aventuras en mundo abierto que lleva a los jugadores a explorar el vasto y detallado reino de Hyrule. Desarrollado por Nintendo, el juego ofrece libertad total para resolver acertijos, luchar contra enemigos y descubrir secretos, todo mientras disfrutas de un entorno visual impresionante y una narrativa envolvente.",
+    "foto": "/images/Zelda-Breath-of-the-Wild.png",
+    "plataforma": "Nintendo Switch",
+    "año": 2017,
+    "desarrollador": "Nintendo",
+    "genero": "Aventura",
+    "valoracion": 10,
+    "edad": "PGR"
+  },
+  {
+    "id": 2,
+    "nombre": "Super Mario Odyssey",
+    "descripcion": "Un videojuego de plataformas de Mario para la Nintendo Switch que sigue a Mario en una travesía por diversos mundos.",
+    "foto": "/images/mario.png",
+    "plataforma": "Nintendo Switch",
+    "año": 2017,
+    "desarrollador": "Nintendo",
+    "genero": "Plataformas",
+    "valoracion": 9.5,
+    "edad": "G"
+  },
+  {
+    "id": 3,
+    "nombre": "Red Dead Redemption 2",
+    "descripcion": "Red Dead Redemption 2 es un épico juego de acción y aventura en mundo abierto desarrollado por Rockstar Games. Ambientado en el salvaje oeste, los jugadores asumen el rol de Arthur Morgan, un forajido que debe sobrevivir en un mundo en constante cambio. Con una narrativa profunda, personajes complejos, y un entorno visualmente asombroso, el juego ofrece una experiencia inmersiva de exploración, tiroteos, y decisiones morales que impactan el desarrollo de la historia.",
+    "foto": "/images/rd2.png",
+    "plataforma": "PlayStation 4, Xbox One, PC",
+    "año": 2018,
+    "desarrollador": "Rockstar Games",
+    "genero": "Aventura, Acción",
+    "valoracion": 9.7,
+    "edad": "MA"
+  },
+  {
+    "id": 4,
+    "nombre": "The Witcher 3: Wild Hunt",
+    "descripcion": "Un juego de rol de acción que sigue a Geralt of Rivia en una serie de misiones por el continente en guerra y lleno de monstruos.",
+    "foto": "/images/witcher.png",
+    "plataforma": "PlayStation 4, Xbox One, PC, Nintendo Switch",
+    "año": 2015,
+    "desarrollador": "CD Projekt Red",
+    "genero": "RPG, Aventura",
+    "valoracion": 5,
+    "edad": "MA"
+  },
+  {
+    "id": 5,
+    "nombre": "Fortnite",
+    "descripcion": "Un juego de batalla real en el que 100 jugadores luchan para ser el último en pie en un mapa en constante reducción.",
+    "foto": "/images/fornite.png",
+    "plataforma": "PlayStation, Xbox, PC, Nintendo Switch",
+    "año": 2017,
+    "desarrollador": "Epic Games",
+    "genero": "Battle Royale, Shooter",
+    "valoracion": 4.3,
+    "edad": "PGR"
+  },
+  {
+    "id": 1726962657767,
+    "nombre": "Fifa 25",
+    "descripcion": "Vuelve el fútbol en su máximo esplendor, juega con tu equipo favorito y conquista el mundo",
+    "foto": "/images/fifa25.png",
+    "plataforma": "PS5, PC, XBOX",
+    "año": 2024,
+    "desarrollador": "EA SPORTs",
+    "genero": "Deportes",
+    "valoracion": 5,
+    "edad": "G"
+  }
+]
